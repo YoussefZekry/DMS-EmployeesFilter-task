@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dms.EmployeesFilter.dtos.EmployeesDto;
-import com.dms.EmployeesFilter.models.Employees;
 import com.dms.EmployeesFilter.services.EmployeesService;
 
 @RestController
@@ -19,8 +18,8 @@ public class EmployeesController {
 	private EmployeesService employeesService;
 
 	@GetMapping("/all")
-	public ResponseEntity<List<Employees>> findAll(){
-		List<Employees> all = employeesService.findAll();
+	public ResponseEntity<List<EmployeesDto>> findAll(){
+		List<EmployeesDto> all = employeesService.findAll();
 		return ResponseEntity.ok().body(all);
 	}
 }

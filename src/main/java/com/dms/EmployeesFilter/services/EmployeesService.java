@@ -14,6 +14,7 @@ import com.dms.EmployeesFilter.repositories.EmployeesRepository;
 public class EmployeesService {
 	@Autowired
 	private EmployeesRepository employeesRepository;
+	@Autowired
 	private EmployeesMapper employeesMapper;
 
 	// public List<EmployeesDto> emplyeesFilter(EmployeesDto employeesDto){
@@ -21,9 +22,9 @@ public class EmployeesService {
 	// 	return employeesMapper.map(employees);
 	// }
 
-	public List<Employees> findAll(){
+	public List<EmployeesDto> findAll(){
 		List<Employees> employees = employeesRepository.findAll();
-		// List<EmployeesDto> all = employeesMapper.map(employees);
-		return employees;
+		List<EmployeesDto> allDto = employeesMapper.map(employees);
+		return allDto;
 	}
 }
