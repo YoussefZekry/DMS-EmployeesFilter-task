@@ -10,39 +10,39 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "employees",catalog = "employeesdb")
+@Table(name = "employees", catalog = "employeesdb")
 public class Employees {
 	@Id
-    @Column(unique = true,nullable = false)
-    private int id ;
-
-	@Column(name = "name")
-    private String name ;
-
-	@Column(name = "birth_date" )
-	@Temporal(TemporalType.DATE)
-    private Date birthDate ;
-
-	@Column(name = "birth_city")
-    private String birthCity ;
+	@Column(unique = true, nullable = false)
+	private int id;
 
 	@Column(name = "code")
-    private int code ;
+	private int code;
+
+	@Column(name = "name")
+	private String name;
+
+	@Column(name = "birth_date")
+	@Temporal(TemporalType.DATE)
+	private Date birthDate;
+
+	@Column(name = "birth_city")
+	private String birthCity;
 
 	@Column(name = "department")
-    private String department ;
+	private String department;
 
 	@Column(name = "job_title")
-    private String jobTitle ;
+	private String jobTitle;
 
 	@Column(name = "direct_manager")
-    private String directManager ;
+	private String directManager;
 
 	@Column(name = "contract_type")
-    private String contractType ;
+	private String contractType;
 
 	@Column(name = "status")
-    private boolean status ;
+	private boolean status;
 
 	public int getId() {
 		return id;
