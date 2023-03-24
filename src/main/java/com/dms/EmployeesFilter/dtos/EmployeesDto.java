@@ -6,8 +6,8 @@ import lombok.Data;
 
 @Data
 public class EmployeesDto {
-	private int id;
-	private int code;
+	private Integer id;
+	private Integer code;
 	private String name;
 	private Date birthDate;
 	private String birthCity;
@@ -15,5 +15,5 @@ public class EmployeesDto {
 	private String jobTitle;
 	private String directManager;
 	private String contractType;
-	private boolean status;
+	private Boolean status;
 }

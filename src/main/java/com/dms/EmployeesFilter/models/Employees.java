@@ -14,10 +14,10 @@ import jakarta.persistence.TemporalType;
 public class Employees {
 	@Id
 	@Column(unique = true, nullable = false)
-	private int id;
+	private Integer id;
 
 	@Column(name = "code")
-	private int code;
+	private Integer code;
 
 	@Column(name = "name")
 	private String name;
@@ -42,13 +42,13 @@ public class Employees {
 	private String contractType;
 
 	@Column(name = "status")
-	private boolean status;
+	private Boolean status;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -76,11 +76,11 @@ public class Employees {
 		this.birthCity = birthCity;
 	}
 
-	public int getCode() {
+	public Integer getCode() {
 		return code;
 	}
 
-	public void setCode(int code) {
+	public void setCode(Integer code) {
 		this.code = code;
 	}
 
@@ -116,11 +116,11 @@ public class Employees {
 		this.contractType = contractType;
 	}
 
-	public boolean isStatus() {
+	public Boolean isStatus() {
 		return status;
 	}
 
-	public void setStatus(boolean status) {
+	public void setStatus(Boolean status) {
 		this.status = status;
 	}
 }
