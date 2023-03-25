@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.dms.EmployeesFilter.dtos.EmployeesDto;
@@ -48,12 +47,12 @@ public class EmployeesRepository {
 		}
 
 		if(employeesDTO.getBirthDate() != null) {
-			Predicate birthDate = criteriaBuilder.equal(root.get("birth_date"), employeesDTO.getBirthDate());
+			Predicate birthDate = criteriaBuilder.equal(root.get("birthDate"), employeesDTO.getBirthDate());
 			predicates.add(birthDate);
 		}
 		
 		if(employeesDTO.getBirthCity() != null) {
-			Predicate birthCity = criteriaBuilder.like(root.get("birth_city"), "%" + employeesDTO.getBirthCity() + "%" );
+			Predicate birthCity = criteriaBuilder.like(root.get("birthCity"), "%" + employeesDTO.getBirthCity() + "%" );
 			predicates.add(birthCity);
 		}
 
@@ -63,26 +62,26 @@ public class EmployeesRepository {
 		}
 
 		if(employeesDTO.getJobTitle() != null){
-			Predicate jobTitle = criteriaBuilder.like(root.get("job_title"), "%" + employeesDTO.getJobTitle() + "%" );
+			Predicate jobTitle = criteriaBuilder.like(root.get("jobTitle"), "%" + employeesDTO.getJobTitle() + "%" );
 			predicates.add(jobTitle);
 		}
 					
 		if(employeesDTO.getDirectManager() != null){
-			Predicate directManager = criteriaBuilder.like(root.get("direct_manager"), "%" + employeesDTO.getDirectManager() + "%" );
+			Predicate directManager = criteriaBuilder.like(root.get("directManager"), "%" + employeesDTO.getDirectManager() + "%" );
 			predicates.add(directManager);
 		}
 
 		if(employeesDTO.getContractType() != null){
-			Predicate contractType = criteriaBuilder.like(root.get("contract_type"), "%" + employeesDTO.getContractType() + "%" );
+			Predicate contractType = criteriaBuilder.like(root.get("contractType"), "%" + employeesDTO.getContractType() + "%" );
 			predicates.add(contractType);
 		}
 
 		if(employeesDTO.getStatus() != null){
-			Predicate status = criteriaBuilder.equal(root.get("status"), "%" + employeesDTO.getStatus() + "%" );
+			Predicate status = criteriaBuilder.equal(root.get("status"),employeesDTO.getStatus());
 			predicates.add(status);	
 		}
 
-		criteriaQuery.where(criteriaBuilder.or(predicates.toArray(new Predicate[0])));
+		criteriaQuery.where(criteriaBuilder.and(predicates.toArray(new Predicate[0])));
 		TypedQuery<Employees> query = entityManager.createQuery(criteriaQuery);
 		return query.getResultList();
 	}

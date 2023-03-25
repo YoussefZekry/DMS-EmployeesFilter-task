@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.dms.EmployeesFilter.dtos.EmployeesDto;
 import com.dms.EmployeesFilter.mappers.EmployeesMapper;
-import com.dms.EmployeesFilter.models.Employees;
 import com.dms.EmployeesFilter.repositories.EmployeesRepository;
 
 @Service
@@ -17,14 +16,13 @@ public class EmployeesService {
 	@Autowired
 	private EmployeesMapper employeesMapper;
 
-	// public List<EmployeesDto> emplyeesFilter(EmployeesDto employeesDto){
-	// 	List<Employees> employees = employeesRepository.emplyeesFilter(employeesDto);
-	// 	return employeesMapper.map(employees);
-	// }
-
-	public List<EmployeesDto> findAll(){
-		List<Employees> employees = employeesRepository.findAll();
-		List<EmployeesDto> allDto = employeesMapper.map(employees);
-		return allDto;
+	public List<EmployeesDto> employeesFilter(EmployeesDto employeesDTO){
+		return employeesMapper.map(employeesRepository.employeesFilter(employeesDTO));
 	}
+
+	// public List<EmployeesDto> findAll(){
+	// 	List<Employees> employees = employeesRepository.findAll();
+	// 	List<EmployeesDto> allDto = employeesMapper.map(employees);
+	// 	return allDto;
+	// }
 }
